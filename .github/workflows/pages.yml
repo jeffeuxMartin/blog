@@ -11,13 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          token: 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
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
-      - name: Use Node.js 16.x
+      - name: Use Node.js 18.9.0
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '18'
       - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
@@ -32,5 +33,6 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: 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
+          # github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
